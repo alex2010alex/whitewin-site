@@ -2,7 +2,7 @@ const {src, dest, watch, parallel, series} = require('gulp');
 
 const scss = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
-const uglify = require('gulp-uglify-es').default;
+//const uglify = require('gulp-uglify-es').default;
 const browserSync = require('browser-sync').create();
 const autoprefixer = require('gulp-autoprefixer');
 const clean = require('gulp-clean');
@@ -17,7 +17,7 @@ const prettify = require('gulp-html-prettify');
 
 function scripts(){
     return src([
-        'src/js/*.js',
+        'src/js/script.js',
         '!src/js/script.min.js'
     ])
     .pipe(sourcemaps.init())
@@ -25,7 +25,7 @@ function scripts(){
         presets: ["@babel/preset-env"]
     }))
     .pipe(concat('script.min.js'))
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(dest('src/js'))
     .pipe(browserSync.stream())
@@ -35,9 +35,9 @@ function styles(){
     return src('src/scss/style.scss')
     .pipe(sourcemaps.init())
     .pipe(autoprefixer({overrideBrowserslist: ['last 10 version']}))
-    .pipe(concat('style.min.css'))
+    .pipe(concat('style.css'))
     .pipe(scss({
-        outputStyle: 'compressed'
+        outputStyle: 'expanded'
     }))
     .pipe(sourcemaps.write())
     .pipe(dest('src/css'))
