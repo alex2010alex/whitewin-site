@@ -755,7 +755,7 @@ $background: #EDF6F8;
             position: absolute;
             right: 0;
             bottom: 0;
-            z-index: -1;
+            z-index: 1;
             @media (max-width: 1024.33333px) {
                 display: none;
             }
@@ -1560,6 +1560,175 @@ $background: #EDF6F8;
             .h2, .p{
                 width: 100%;
             }
+        }
+    }
+}
+/* company page */
+.company-banner{
+    &__wrapper{
+        position: relative;
+        padding-bottom: 12px;
+        .h2{
+            height: 144px;
+        }
+        img{
+            position: absolute;
+            bottom: -64px;
+            right: 0;
+        }
+        &::after{
+            position: absolute;
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: $accent-orange;
+            border-radius: 50%;
+            left: 0;
+            bottom: 0;
+        }
+    }
+}
+.we-know.company-page{
+    .container{
+        .we-know__wrapper{
+           display: flex;
+           gap: 32px;
+           position: relative;
+
+           .h2{
+            width: 40%;
+            padding-right: 15%;
+
+            &::after{
+                display: none;
+            }
+           }
+           .we-know__text{
+            width: calc(60% - 32px);
+            .p{
+                width: 100%;
+                color: $base-text;
+                line-height: 28px;
+            }
+           }
+           img{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+           }
+        }
+    }
+}
+.our-team{
+    .h2{
+        margin-bottom: 32px;
+    }
+    .main-persons{
+        display: flex;
+        gap: 32px;
+        margin-bottom: 64px;
+
+        &__card{
+            padding: 36px 36px 0 36px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            background: $background;
+            border-radius: 8px;
+            width: calc(50% - 16px);
+            overflow: hidden;
+            .info{
+                width: 50%;
+                padding-bottom: 32px;
+                .p:first-child{
+                    position: relative;
+                    &::after{
+                        position: absolute;
+                        content: '';
+                        width: 12px;
+                        height: 12px;
+                        left: -42px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: $accent-orange;
+                        border-radius: 50%;
+                    }
+                }
+                .p + .p{
+                    color: $darker-biege;
+                    font-size: 12px;
+                    line-height: 12px;
+                }
+            }
+        }
+    }
+    .persons-list{
+        margin-top: 64px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+
+        &__element{
+            width: calc(22%);
+            img{
+                width: 96px;
+                height: 96px;
+                object-fit: cover;
+                border-radius: 50%;
+                margin-bottom: 8px;
+            }
+            .p + .p{
+                font-size: 12px;
+                line-height: 12px;
+                color: $darker-biege;
+            }
+        }
+    }
+}
+.expertise{
+    .container{
+        display: flex;
+        justify-content: space-between;
+        gap: 32px;
+
+        .info{
+            width: 60%;
+            padding-top: 20px;
+            .p{
+                line-height: 28px;
+                font-size: 16px;
+                color: $base-text;
+            }
+            .p:first-child{
+                margin-bottom: 40px;
+            }
+        }
+    }
+}
+.numbers{
+    .container{
+        display: flex;
+        gap: 32px;
+        align-items: flex-start;
+    }
+    &__element{
+        display: flex;
+        gap: 16px;
+        flex-direction: column;
+        width: calc(33.33333% - 16px);
+
+        .numbers__title{
+            color: $accent-orange;
+            font-size: 48px;
+            letter-spacing: 2.4px;
+            font-weight: 700;
+            line-height: 64px;
+        }
+
+        .p + .p{
+            color: $base-text;
+            font-size: 16px;
+            line-height: 28px;
         }
     }
 }

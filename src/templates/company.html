@@ -1,0 +1,231 @@
+{% extends "src/layout/main.html" %}
+
+{% set breadcrumbs = [
+    {
+        'title': 'Home',
+        'url': '/'
+    }
+] %}
+
+{% set persons = [
+    {
+        'name': 'Michail Kim',
+        'job': 'BuildItBig limited',
+        'photo': '../img/our-team-3.jpeg'
+    },
+    {
+        'name': 'Irina Bregova',
+        'job': 'BuildItBig limited',
+        'photo': '../img/our-team-4.jpeg'
+    },
+    {
+        'name': 'Jonathan Ferdo',
+        'job': 'BuildItBig limited',
+        'photo': '../img/our-team-5.jpeg'
+    },
+    {
+        'name': 'Konstantin Konstantov',
+        'job': 'BuildItBig limited',
+        'photo': '../img/our-team-6.jpeg'
+    },
+    {
+        'name': 'Katherine Meirou',
+        'job': 'BuildItBig limited',
+        'photo': '../img/our-team-7.jpeg'
+    },
+    {
+        'name': 'Julia Vranova',
+        'job': 'BuildItBig limited',
+        'photo': '../img/our-team-8.jpeg'
+    },
+    {
+        'name': 'Liza Favorova',
+        'job': 'BuildItBig limited',
+        'photo': '../img/our-team-9.jpeg'
+    }
+] %}
+
+{% set pageTitle = 'Company' %}
+{% block content %}
+{% include "src/components/breadcrumbs.html" %}
+<section class="company-banner">
+    <div class="container">
+        <div class="company-banner__wrapper">
+            <h1 class="h1">White Wins</h1>
+            <h2 class="h2">We are to win with</h2>
+            <img src="../img/company-banner-img.png" alt="">
+        </div>
+    </div>
+</section>
+<section class="we-know company-page">
+    <div class="container">
+        <div class="we-know__wrapper">
+            <h2 class="h2">We know laws at Cyprus</h2>
+            <div class="we-know__text">
+                <p class="p">At WhiteWins, our legal knowledge and extensive practice is a guarantee of providing you with high quality services. We know that in order to bring you maximum benefit, we must provide tailor-made solutions tailored to your specific needs. With lawyers, auditors, accountants and colleagues in our partner offices (Cyprus, Russia, Great Britain, China), we at WhiteWins have assembled a young team with strong practical cases and professionals in their fields who provide services to clients with an individual approach, understanding exactly your needs.</p>
+                <p class="p">Moreover, our established international practice, as well as extensive experience in negotiation, have made it our distinguishing feature to establish a common understanding of the processes between clients from different countries and national cultures. The elimination of possible misunderstandings caused by the national specifics of doing business and the expectations of clients from the processes makes us the missing link in establishing mutual understanding and dialogue between our clients from different national cultures. Our firm has been recognized by clients for its ability to provide the highest quality legal advice combined with the perfect balance between law and enforcement, taking into account an understanding of national cultures and business traditions.</p>    
+            </div>
+            <img src="../img/chess-2.png" alt="">
+        </div>
+    </div>
+</section>
+<section class="our-team">
+    <div class="container">
+        <h2 class="h2">Our team</h2>
+        <div class="main-persons">
+            <a href="" class="main-persons__card">
+                <div class="info">
+                    <p class="p p-bold">Katherine Meirou</p>
+                    <p class="p">CEO</p>
+                </div>
+                <img src="../img/our-team-1.png" alt="">
+            </a>
+            <a href="" class="main-persons__card">
+                <div class="info">
+                    <p class="p p-bold">Katherine Meirou</p>
+                    <p class="p">Lead Lawyer</p>
+                </div>
+                <img src="../img/our-team-2.png" alt="">
+            </a>
+        </div>
+        <div class="persons-list">
+            {% for person in persons %}
+            <a href="" class="persons-list__element">
+                <img src="{{ person.photo }}" alt="">
+                <p class="p p-bold">{{ person.name }}</p>
+                <p class="p">{{ person.job }}</p>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section class="expertise">
+    <div class="container">
+        <h2 class="h2">Expertise</h2>
+        <div class="info">
+            <p class="p">We provide services in a variety of areas, including commercial litigation, bankruptcy, property and banking, taxation, corporate law, dispute resolution, criminal law, immigration law, family and inheritance law. Our lawyers, auditors and accountants are recognized leaders in their profession. The high level of our service is achieved by an individual approach to each specific case of the client – by selecting a team according to the needs of the client for each specific case from specialists with extensive experience in their field. This is your guarantee of receiving quality legal services.</p>
+            <p class="p">WhiteWins’ mission is to provide efficient, customer-centric services across a wide range of industries. Cooperation between practitioners, team selection for each case, along with highly qualified management allows us to provide dynamic legal support at a high level, regardless of your location or your business activity.</p>
+        </div>
+    </div>
+</section>
+<section class="numbers">
+    <div class="container">
+        <div class="numbers__element">
+            <p class="p numbers__title">12Y</p>
+            <p class="p">Of experience at laws in Cyprus</p>
+        </div>
+        <div class="numbers__element">
+            <p class="p numbers__title">800+</p>
+            <p class="p">Satisfied clients at Cyprus – business & private</p>
+        </div>
+        <div class="numbers__element">
+            <p class="p numbers__title">23</p>
+            <p class="p">Well experienced lawyers in our team</p>
+        </div>
+    </div>
+</section>
+<section class="services">
+    <div class="container">
+        <h2 class="h2">Services</h2>
+        <div class="services__content">
+            <div class="services__left-content services__content-element">
+                <h3 class="h3">Immigration</h3>
+                <p class="p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <img src="../img/services-chess.png" alt="" class="services__content-img">
+            </div>
+            <div class="services__right-content">
+                <div class="services__content-element">
+                    <h3 class="h3">Business Registration</h3>
+                    <p class="p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+                <div class="services__content-element">
+                    <h3 class="h3">Property</h3>
+                    <p class="p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+            </div>
+        </div>
+        <div class="services__content">
+            <div class="services__left-content">
+                <ul class="services__ul">
+                    <li class="services__li">Family legal rights</li>
+                    <li class="services__li">Judicial representation</li>
+                    <li class="services__li">Dispute Resolution</li>
+                    <li class="services__li">Criminal law practice</li>
+                </ul>
+            </div>
+            <div class="services__right-content">
+                <ul class="services__ul">
+                    <li class="services__li">Legal investigation</li>
+                    <li class="services__li">Corporate law</li>
+                    <li class="services__li">Labor law</li>
+                    <li class="services__li">Legal documents templates</li>
+                </ul>
+            </div>
+        </div>
+        <img src="../img/services-chess-2.png" alt="" class="services__content-img">
+    </div>
+</section>
+<section class="expertise">
+    <div class="container">
+        <h2 class="h2">Mission</h2>
+        <div class="info">
+            <p class="p">Every action we take is based on the provision of specialized services with the deepest knowledge and experience for each specific client need – whether it is an issue requiring quick resolution, or a complex national or international dispute involving a wide range of legal services, crossing jurisdictions and borders.</p>
+            <p class="p">At WhiteWins, we carefully analyze each case, using our experience and building teams of specialists for your case to determine the best strategy for each situation. We know that litigation can be both time consuming and costly, so we work diligently and carefully to get the best possible outcome for our clients in the most cost effective way. Our position to persist and successfully fight for our clients in court often allows us to obtain very beneficial results in the early stages of a case.</p>
+        </div>
+    </div>
+</section>
+<section class="partners">
+    <div class="container">
+        <h2 class="h2">Partners & friends</h2>
+        <div class="partners__list">
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+</section>
+<section class="need-help">
+    <div class="container">
+        <div class="need-help__text">
+            <h2 class="h2">Need help with our service?</h2>
+            <p class="p">Send us a message and our managers will help to make right decision ASAP</p>
+            <img src="" alt="">
+        </div>
+        <form action="" class="form ">
+            <div class="form__element">
+                <input required id="form-name" type="text" name="name" class="form__input">
+                <div class="input-placeholder">Name</div>       
+            </div>
+
+
+            <div class="form__element">
+                <input required id="form-phone" type="text" name="phone" class="form__input">
+                <div class="input-placeholder">Phone</div>      
+            </div>
+
+
+            <div class="form__element form__topic topic">
+                <input type="hidden" id="form-topic">
+                <div class="form__input"></div>
+                <div class="input-placeholder">Topic</div>
+                <ul class="topic__dropdown">
+                    <li class="topic__dropdown-item">Topic one</li>
+                    <li class="topic__dropdown-item">Topic two</li>
+                    <li class="topic__dropdown-item">Topic three</li>
+                </ul>
+            </div>
+
+            <button type="submit" class="btn--black">Send</button>
+
+        </form>
+    </div>
+</section>
+{% endblock content %}
