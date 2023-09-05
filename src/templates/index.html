@@ -1,5 +1,6 @@
-{% set title = "WhiteWIns - Family & Business Lawyers" %}
 {% extends "src/layout/main.html" %}
+
+{% set pageTitle = 'Family & Business Lawyers' %}
 
 {% block content %}
     <section class="main-banner">
@@ -23,7 +24,8 @@
 
 
                     <div class="form__element form__topic topic">
-                        <div id="form-topic" class="form__input"></div>
+                        <input type="hidden" id="form-topic">
+                        <div class="form__input"></div>
                         <div class="input-placeholder">Topic</div>
                         <ul class="topic__dropdown">
                             <li class="topic__dropdown-item">Topic one</li>

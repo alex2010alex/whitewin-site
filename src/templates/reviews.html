@@ -1,0 +1,117 @@
+{% extends "src/layout/main.html" %}
+
+{% set breadcrumbs = [
+    {
+        'title': 'Home',
+        'url': '/'
+    }
+] %}
+
+{% set pageTitle = 'Reviews' %}
+
+{% set reviewers = [
+    {
+        'name': 'Mark Miller',
+        'corp': 'Mark Miller LLC',
+        'img': '../img/reviewer-photo-1.jpg',
+        'text': ['When I arrived on the island on a guest visa, accordingly, I did not have any documents, except for a foreign passport, provisions (then they were still issued) and a test for a virus known to everyone.',
+                 'I came to experiment, try to live here, maybe get a job. I didn’t know then that to stay, you need to go through a bunch of procedures and collect the same bunch of documents. Then it seemed to me that it was simply unrealistic to do it.']
+    },
+    {
+        'name': 'Katherine Meirou',
+        'corp': 'BuildItBig limited',
+        'img': '../img/reviewer-photo-2.jpg',
+        'text': ["Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."]
+    },
+    {
+        'name': 'Pyotr Ulyanov',
+        'corp': 'BuildItBig limited',
+        'img': '../img/reviewer-photo-3.jpeg',
+        'text': ["Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."]
+    }
+] %}
+
+{% block content %}
+{% include "src/components/breadcrumbs.html" %}
+<section class="reviews-page page-content">
+    <div class="container">
+        <h1 class="h1">{{ pageTitle }}</h1>
+        {% for reviewer in reviewers %}
+            <div class="review">
+                <div class="review__reviewer reviewer">
+                    <div class="reviewer__img">
+                        <img src="{{ reviewer.img }}" alt="">
+                    </div>
+                    <div class="reviewer__info">
+                        <h3 class="h3">{{ reviewer.name }}</h3>
+                        <p class="p">{{ reviewer.corp }}</p>
+                    </div>
+                </div>
+                <div class="review__info">
+                    {% for text in reviewer.text %}
+                        <p class="p">{{ text }}</p>
+                    {% endfor %}
+                    <a href="" class="review__view-full-btn">Vief full</a>
+                </div>
+            </div>
+            {% if loop.index == 2 %}
+                <div class="reviews__list">
+                    {% for i in range(1, 4) %}
+                    <div class="reviews__list-element">
+                        <img src="../img/reviews-list-{{ i }}.jpeg" alt="">
+                        <button class="reviews__list-element-btn">
+                            <svg>
+                                <use href="#play"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        <button class="reviews__load-more-btn">Load more</button>
+    </div>
+</section>
+<section class="need-help">
+    <div class="container">
+        <div class="need-help__text">
+            <h2 class="h2">Need help with our service?</h2>
+            <p class="p">Send us a message and our managers will help to make right decision ASAP</p>
+            <img src="" alt="">
+        </div>
+        <form action="" class="form ">
+            <div class="form__element">
+                <input required id="form-name" type="text" name="name" class="form__input">
+                <div class="input-placeholder">Name</div>       
+            </div>
+
+
+            <div class="form__element">
+                <input required id="form-phone" type="text" name="phone" class="form__input">
+                <div class="input-placeholder">Phone</div>      
+            </div>
+
+
+            <div class="form__element form__topic topic">
+                <input type="hidden" id="form-topic">
+                <div class="form__input"></div>
+                <div class="input-placeholder">Topic</div>
+                <ul class="topic__dropdown">
+                    <li class="topic__dropdown-item">Topic one</li>
+                    <li class="topic__dropdown-item">Topic two</li>
+                    <li class="topic__dropdown-item">Topic three</li>
+                </ul>
+            </div>
+
+            <button type="submit" class="btn--black">Send</button>
+
+        </form>
+    </div>
+</section>
+<div class="seo-module">
+    <div class="container">
+        <h2 class="h2">SEO module</h2>
+        <p class="p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+    </div>
+</div>
+{% endblock %}

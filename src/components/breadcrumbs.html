@@ -1,0 +1,8 @@
+<div class="breadcrumbs">
+    <div class="container">
+        {% for item in breadcrumbs %}
+            <a href="{{ item.url }}" class="breadcrumbs__element">{{ item.title }}</a>
+        {% endfor %}
+        <a href="#" class="breadcrumbs__element">{{ pageTitle }}</a>
+    </div>
+</div>

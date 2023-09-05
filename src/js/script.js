@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     formTopicInput.addEventListener('click', (e) => {
         if (e.target.classList.contains('topic__dropdown-item')){
             formTopicInput.querySelector('.input-placeholder').innerHTML = e.target.innerHTML;
-            formTopicInput.querySelector('.input-placeholder').setAttribute('value', e.target.innerHTML);
+            formTopicInput.querySelector('#form-topic').setAttribute('value', e.target.innerHTML);
         }
         console.log(e.target)
         formTopicInput.classList.toggle('topic__dropdown--active');

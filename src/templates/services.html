@@ -1,0 +1,63 @@
+{% extends "src/layout/main.html" %}
+
+{% set breadcrumbs = [
+    {
+        'title': 'Home',
+        'url': '/'
+    }
+] %}
+
+{% set pageTitle = 'Services' %}
+
+{% block content %}
+{% include "src/components/breadcrumbs.html" %}
+</div>
+<section class="services-page page-content">
+    <div class="container">
+        <h1 class="h1">Services</h1>
+        <div class="services__content">
+            <div class="services__left-content services__content-element">
+                <h3 class="h3">Immigration</h3>
+                <p class="p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <img src="../img/services-chess.png" alt="" class="services__content-img">
+            </div>
+            <div class="services__right-content">
+                <div class="services__content-element">
+                    <h3 class="h3">Business Registration</h3>
+                    <p class="p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+                <div class="services__content-element">
+                    <h3 class="h3">Property</h3>
+                    <p class="p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+            </div>
+        </div>
+        <div class="services__content">
+            <div class="services__left-content">
+                <ul class="services__ul">
+                    <li class="services__li">Family legal rights</li>
+                    <li class="services__li">Judicial representation</li>
+                    <li class="services__li">Dispute Resolution</li>
+                    <li class="services__li">Criminal law practice</li>
+                </ul>
+            </div>
+            <div class="services__right-content">
+                <ul class="services__ul">
+                    <li class="services__li">Legal investigation</li>
+                    <li class="services__li">Corporate law</li>
+                    <li class="services__li">Labor law</li>
+                    <li class="services__li">Legal documents templates</li>
+                </ul>
+            </div>
+            <img src="../img/services-chess-2.png" alt="" class="services__content-img">
+        </div>
+        
+    </div>
+    <div class="seo-module">
+        <div class="container">
+            <h2 class="h2">SEO module</h2>
+            <p class="p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
