@@ -1,0 +1,27 @@
+{% extends "src/layout/main.html" %}
+
+{% set breadcrumbs = [
+    {
+        'title': 'Home',
+        'url': '/'
+    },
+    {
+        'title': 'Section',
+        'url': '../pages/company.html'
+    }
+] %}
+
+{% set pageTitle = 'Oopsie...' %}
+
+{% block content %}
+{% include "src/components/breadcrumbs.html" %}
+<section class="page-not-found">
+    <div class="container">
+        <h1 class="h1">{{ pageTitle }}</h1>
+        <img src="../img/chess-3.png" alt="Oopsie...">
+        <h2 class="h2">404 – page not found</h2>
+        <p class="p-bold">It seems page you are looking for doesn’t exist – yet we are happy to be your lawyer :)</p>
+        <a href="/">Click here to go to know more</a>
+    </div>
+</section>
+{% endblock %}
