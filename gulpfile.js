@@ -92,10 +92,10 @@ function img(){
 
 function building(){
     return src([
-        'src/css/style.min.css',
-        'src/js/script.min.js',
+        'src/css/*.css', '!src/css/style.min.css',
+        'src/js/*.js', '!src/js/script.js',
         'src/pages/**/*.html',
-    ], {base: 'src'})
+        'src/img/**/*'], {base: 'src'})
     .pipe(dest('dist'))
 }
 

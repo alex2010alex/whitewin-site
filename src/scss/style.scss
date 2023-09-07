@@ -932,6 +932,7 @@ input{
                     border-radius: 50%;
                     left: 0;
                     top: calc(-36px - 6px);
+                    transition: .25s;
                 }
             }
             &__img{
@@ -1304,10 +1305,6 @@ input{
                 .h2 {
                     width: 100%;
                 }
-
-                .p {
-                    width: 100%;
-                }
             }
         }
     }
@@ -1375,6 +1372,26 @@ input{
                     object-fit: cover;
                 }
             }
+
+            .info{
+                .date-container::after,
+                .tags::after{
+                    transition: .25s;
+                }
+            }
+
+            &:hover{
+                .info{
+                    .h3::after{
+                        left: 100%;
+                    }
+                    .date-container::after{
+                        transform: rotate(45deg);
+                    }
+                }
+                
+            }
+
         }
     }
     .all-news,
@@ -1397,11 +1414,26 @@ input{
                 padding: 8px 0;
                 border-bottom: 1px solid $mouse-gray-alt; 
                 border-radius: 0;
+                transition: .25s;
                 .h3{
                     margin-bottom: 8px;
                 }
                 .date-container{
                     margin-bottom: 8px;
+
+                    &::after{
+                        transition: .25s;
+                    }
+                }
+                .tags::after{
+                    transition: .25s;
+                }
+                &:hover{
+                    border-bottom: 1px solid $accent-orange; 
+                    .date-container::after,
+                    .tags::after{
+                        transform: rotate(45deg);
+                    }
                 }
             }
         }
@@ -2218,7 +2250,7 @@ input{
                     width: 100%;
                 }
                 @media (max-width: 501px) {
-                    font-size: 42px;
+                    font-size: 40px;
                 }
                 
 
