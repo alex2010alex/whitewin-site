@@ -825,8 +825,11 @@ input{
                 padding-bottom: 0;
                 position: relative;
             }
-            &-img{
+            .services__content-img{
                 z-index: -1;
+                @media (max-width: 501px) {
+                    display: none;
+                }
             }
         }
         @media (max-width: 501px) {
