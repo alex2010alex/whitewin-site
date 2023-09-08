@@ -642,6 +642,12 @@ input{
             width: 100%;
             height: 44px;
             padding-left: 8px;
+            &:focus{
+                border-bottom: 1px solid $accent-orange;
+                + .input-placeholder{
+                    color: $black;
+                }
+            }
         }
         &__input:invalid + .input-placeholder{
             display: block;
@@ -688,6 +694,12 @@ input{
         }
         .topic__dropdown--active .topic__dropdown{
             transform: scaleY(1);
+        }
+        .topic__dropdown--active .form__input{
+            border-bottom: 1px solid $accent-orange;
+        }
+        .topic__dropdown--active .input-placeholder{
+            color: $black;
         }
     }
 }
@@ -953,6 +965,18 @@ input{
                     border-top-right-radius: 8px;
                 }
             }
+            &:hover{
+                transform: scale(1.04);
+                .info{
+                    .tags::after,
+                    .date-container::after{
+                        transform: rotate(45deg);
+                    }
+                }
+                .h3::after{
+                    left: 100%;
+                }
+            }
         }
     }
     .info{
@@ -975,6 +999,7 @@ input{
                 content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%3Cpath%20d%3D%22M4%204H19.892V19.892%22%20stroke%3D%22%23F37420%22%2F%3E%0A%3Cpath%20d%3D%22M19.892%203.99987L4.10804%2019.9999%22%20stroke%3D%22%23F37420%22%2F%3E%0A%3C%2Fsvg%3E');
                 right: 0;
                 top: 0;
+                transition: .25s;
             }
             .tag, .date{
                 font-size: 12px;
@@ -999,8 +1024,17 @@ input{
             display: flex;
             flex-direction: column-reverse;
             border-bottom: 1px solid $mouse-gray-alt;
+            border-radius: 0;
             .h3{
                 margin-bottom: 0px;
+            }
+            &:hover {
+                border-bottom: 1px solid $accent-orange;
+                .tags, .date-container{
+                    &::after{
+                        transform: rotate(45deg);
+                    }
+                }
             }
         }
     }
@@ -1049,11 +1083,19 @@ input{
                 width: 100%;
             }
 
+            &:hover{
+                transform: scale(1.01);
+                &::after{
+                    transform: rotate(45deg);
+                }
+            }
+
             &::after{
                 position: absolute;
                 content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%3Cpath%20d%3D%22M4%204H19.892V19.892%22%20stroke%3D%22%23F37420%22%2F%3E%0A%3Cpath%20d%3D%22M19.892%203.99987L4.10804%2019.9999%22%20stroke%3D%22%23F37420%22%2F%3E%0A%3C%2Fsvg%3E');
                 right: 36px;
                 top: 36px;
+                transition: .25s;
             }
             &__img{
                 img{
@@ -1752,6 +1794,9 @@ input{
                 flex-direction: column;
                 align-items: center;
             }
+            &:hover{
+                transform: scale(1.01);
+            }
 
             .info{
                 width: 50%;
@@ -1804,6 +1849,9 @@ input{
                 font-size: 12px;
                 line-height: 12px;
                 color: $darker-biege;
+            }
+            &:hover{
+                transform: scale(1.05);
             }
         }
     }
@@ -1878,11 +1926,23 @@ input{
         gap: 32px;
         flex-wrap: wrap;
         a{
+            opacity: 0;
+            transform: scale(1.2);
+            transition: .25s;
             img{
                 width: 64px;
                 height: 64px;
                 border-radius: 50%;
                 object-fit: cover;
+            }
+        }
+        .load{
+            transform: scale(1);
+            opacity: 1;
+        }
+        &-element{
+            &:hover{
+                transform: scale(1.04);
             }
         }
     }
@@ -2449,5 +2509,21 @@ input{
                 opacity: 0.8;
             }
         }
+    }
+}
+.quick-consult{
+    position: fixed;
+    right: 0;
+    top: 35%;
+    transform: translateY(-65%) translateX(40%) rotate(-90deg);
+    border-radius: 8px 8px 0px 0px;
+    background: $accent-orange;
+    padding: 8px 24px 20px 24px;
+    color: $white;
+    &:hover{
+        color: $accent-orange;
+        background: none;
+        border: 1px solid $accent-orange;
+        transform: translateY(-65%) translateX(35%) rotate(-90deg);
     }
 }
