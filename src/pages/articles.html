@@ -491,6 +491,50 @@
     <a href="#" class="quick-consult">
     Quick consult
 </a>
+    <div class="popUp-background"></div>
+    <section class="need-help popUp-modal">
+        <div class="container">
+            <div class="need-help__text">
+                <h2 class="h2">Need help with our service?</h2>
+                <p class="p">Send us a message and our managers will help to make right decision ASAP</p>
+                <img src="../img/chess-1.png" alt="">
+            </div>
+            <form action="" class="form" id="modal-form">
+                <div class="form__element">
+                    <input required id="form-name" type="text" name="name" class="form__input">
+                    <div class="input-placeholder">Name</div>
+                </div>
+
+                <div class="form__element">
+                    <input required id="form-phone" type="text" name="phone" class="form__input">
+                    <div class="input-placeholder">Phone</div>
+                </div>
+
+                <div class="form__element form__topic topic">
+                    <input type="hidden" id="form-topic">
+                    <div class="form__input"></div>
+                    <div class="input-placeholder">Topic</div>
+                    <ul class="topic__dropdown">
+                        <li class="topic__dropdown-item">Topic one</li>
+                        <li class="topic__dropdown-item">Topic two</li>
+                        <li class="topic__dropdown-item">Topic three</li>
+                    </ul>
+                </div>
+
+                <button type="submit" class="btn--black">Send</button>
+
+            </form>
+            <div class="close-modal">
+                <svg width="256px" height="256px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path d="M16 8L8 16M8.00001 8L16 16" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </section>
     <script src="../js/swiper-bundle.min.js"></script>
     <script src="../js/script.min.js"></script>
 </body>

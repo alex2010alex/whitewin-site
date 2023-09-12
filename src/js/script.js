@@ -61,17 +61,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   })
 
-  const formTopicInput = document.querySelector('.form__topic');
+  const formTopicInput = document.querySelectorAll('.form__topic');
   const formTopicDropdown = document.querySelector('.topic__dropdown');
   if (formTopicInput) {
-    formTopicInput.addEventListener('click', (e) => {
-      if (e.target.classList.contains('topic__dropdown-item')) {
-        formTopicInput.querySelector('.input-placeholder').innerHTML = e.target.innerHTML;
-        formTopicInput.querySelector('#form-topic').setAttribute('value', e.target.innerHTML);
-      }
-      console.log(e.target)
-      formTopicInput.classList.toggle('topic__dropdown--active');
-    });
+    formTopicInput.forEach((topicInput) => {
+      topicInput.addEventListener('click', (e) => {
+        if (e.target.classList.contains('topic__dropdown-item')) {
+          topicInput.querySelector('.input-placeholder').innerHTML = e.target.innerHTML;
+          topicInput.querySelector('#form-topic').setAttribute('value', e.target.innerHTML);
+        }
+        console.log(e.target)
+        topicInput.classList.toggle('topic__dropdown--active');
+      });
+    })
+    
   }
 
   // templates accordion
@@ -273,7 +276,54 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {el.classList.add('load');}, idx * (allPartners.length + 80) + 250)
       });
     };
+  }
 
+  const modal = document.querySelector('.popUp-modal');
+  const popUpBack = document.querySelector('.popUp-background');
+  const openModalBtn = document.querySelector('.quick-consult');
+  const closeModalBtn = modal.querySelector('.close-modal');
+
+  openModalBtn.addEventListener('click', () => {
+    modal.classList.add('modal--show');
+    popUpBack.classList.remove('modal--close');
+    popUpBack.classList.add('modal--open');
+    
+    popUpBack.addEventListener('click', () => {
+      modal.classList.remove('modal--show');
+      popUpBack.classList.remove('modal--open');
+      popUpBack.classList.add('modal--close');
+    });
+  });
+  closeModalBtn.addEventListener('click', () => {
+    modal.classList.remove('modal--show');
+    popUpBack.classList.remove('modal--open');
+    popUpBack.classList.add('modal--close');
+  });
+
+  const reviewsList = document.querySelectorAll('.review__info');
+
+  if (reviewsList.length > 0){
+    reviewsList.forEach((review) => {
+      const btn = review.querySelector('.review__view-full-btn');
+      let reviewHeight = review.querySelector('.review__text').scrollHeight;
+      let reviewText = review.querySelector('.review__text');
+      if (reviewHeight <= 140){
+        btn.style.opacity = 0;
+      }
+
+      btn.addEventListener('click', (e) => {
+        let reviewHeight = review.querySelector('.review__text').scrollHeight;
+        e.preventDefault();
+        if(reviewText.classList.contains('open')){
+          reviewText.classList.remove('open');
+          reviewText.style.height = 140 + 'px';
+        }else{
+          reviewText.classList.add('open');
+          reviewText.style.height = `${reviewHeight}px`;
+        }
+
+      })
+    });
   }
 });
 

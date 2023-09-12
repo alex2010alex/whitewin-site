@@ -865,12 +865,18 @@ input{
         flex-direction: column;
         gap: 32px;
     }
-    &__li{
-        font-weight: 600;
-        color: $black;
+    &__li {
+        border-bottom: 1px solid $mouse-gray-alt;
         padding-left: 36px;
         padding-bottom: 8px;
-        border-bottom: 1px solid $mouse-gray-alt;
+        a{
+            font-weight: 600;
+            color: $black;
+
+            &:hover{
+                color: $accent-orange;
+            }
+        }
     }
 }
 
@@ -1562,6 +1568,16 @@ input{
             .p:last-child{
                 margin-bottom: 32px;
             }
+            .review__text{
+                height: 140px;
+                overflow: hidden;
+                margin-bottom: 32px;
+                transition: .5s;
+                
+                :last-child{
+                    margin-bottom: 0;
+                }
+            }
         }
     }
     .reviews__list{
@@ -1650,6 +1666,7 @@ input{
     background: $mouse-gray-alt;
 
     .container{
+        position: relative;
         display: flex;
         gap: 32px;
         padding-top: calc(64px + 32px + 12px);
@@ -1678,6 +1695,20 @@ input{
                     top: -32px;
                     left: 0;
                     border-radius: 50%;
+                }
+            }
+            img{
+                position: absolute;
+                bottom: 0;
+            
+                @media (max-width: 1024.33333px) {
+                    width: 60%;
+                    transform: translateX(-20%);
+                }
+                @media (max-width: 501px) {
+                    width: 100%;
+                    right: 0;
+                    transform: translateX(0);
                 }
             }
         }
@@ -2534,5 +2565,79 @@ input{
         background: none;
         border: 1px solid $accent-orange;
         transform: translateY(-65%) translateX(35%) rotate(-90deg);
+    }
+}
+.popUp-background{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.247);
+    visibility: hidden;
+}
+.popUp-modal{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1000;
+    transform: translateY(calc(100% + 35px));
+    transition: .5s;
+    .container{
+        padding: 108px 64px;
+        position: relative;
+
+        .close-modal{
+            position: absolute;
+            width: 40px;
+            height: 30px;
+            background: $accent-orange;
+            top: -30px;
+            right: 40px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            cursor: pointer;
+            padding: 0 5px;
+            @media (max-width: 501px) {
+                transform-origin: 50% 100%;
+                transform: scaleY(-1);
+            }
+        }
+    }
+}
+.popUp-modal.modal--show{
+    transform: translateY(0);
+}
+.modal--open{
+    animation: showModal .5s linear forwards;
+}
+.modal--close{
+    animation: closeModal .5s linear forwards;
+}
+@keyframes showModal {
+    0%{
+        visibility: hidden;
+        opacity: 0;
+    }
+    1%{
+        visibility: visible;
+    }
+    100%{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+@keyframes closeModal {
+    0%{
+        visibility: visible;
+        opacity: 1;
+    }
+    99%{
+        visibility: visible;
+        opacity: 0;
+    }
+    100%{
+        visibility: hidden;
+        opacity: 0;
     }
 }
