@@ -283,21 +283,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const openModalBtn = document.querySelector('.quick-consult');
   const closeModalBtn = modal.querySelector('.close-modal');
 
-  openModalBtn.addEventListener('click', () => {
+  openModalBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     modal.classList.add('modal--show');
     popUpBack.classList.remove('modal--close');
+    document.body.style.overflow = 'hidden';
     popUpBack.classList.add('modal--open');
     
     popUpBack.addEventListener('click', () => {
       modal.classList.remove('modal--show');
       popUpBack.classList.remove('modal--open');
       popUpBack.classList.add('modal--close');
+      document.body.style.overflow = 'visible';
     });
   });
   closeModalBtn.addEventListener('click', () => {
     modal.classList.remove('modal--show');
     popUpBack.classList.remove('modal--open');
     popUpBack.classList.add('modal--close');
+    document.body.style.overflow = 'visible';
   });
 
   const reviewsList = document.querySelectorAll('.review__info');
